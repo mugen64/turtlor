@@ -1,0 +1,25 @@
+{
+  "name": "turtlor",
+  "version": "1.0.0",
+  "description": "A simple spending log thingy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mugen64/turtlor.git"
+  },
+  "author": "mugen64",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mugen64/turtlor/issues"
+  },
+  "homepage": "https://github.com/mugen64/turtlor#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11"
+  }
+}
