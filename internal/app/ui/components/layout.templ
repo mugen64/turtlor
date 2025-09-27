@@ -1,5 +1,7 @@
 package components
 
+import "github.com/mugen64/turtlor/internal/app/ui/components/textarea"
+
 templ Layout(children ...templ.Component) {
 	<!DOCTYPE html>
 	<html lang="en">
@@ -11,14 +13,40 @@ templ Layout(children ...templ.Component) {
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 			<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet"/>
 			<link href="/static/css/tailwind.css" rel="stylesheet"/>
+			<script>
+     			const watchTheme = () => {
+      				const selectedTheme = localStorage.getItem('theme') || 'system';
+      				let finalTheme = selectedTheme;
+      				if (selectedTheme === 'system') {
+      						const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      						finalTheme = prefersDark ? 'dark' : 'light';
+      				}
+      				if (finalTheme === 'dark') {
+          				document.documentElement.setAttribute('class', finalTheme);
+         			} else {
+          				document.documentElement.setAttribute('class', '');
+         			}
+      				localStorage.setItem('theme', selectedTheme);
+                    // console.log('Theme changed to:', finalTheme, 'selected:', selectedTheme);
+     			}
+
+     			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', watchTheme);
+			</script>
 			<script src="/static/js/htmx2.0.6.min.js"></script>
+			<link rel="icon" href="/static/images/favicon.ico"/>
 		</head>
-		<body>
-			<main class="min-h-screen border rounded-4xl">
+		<body class="min-h-screen">
+			<header class="flex flex-col items-end justify-end px-5 py-2">
+				<div class="size-8 ms-auto">
+					@ThemeSwitcher()
+				</div>
+			</header>
+			<main>
 				for _, child := range children {
 					@child
 				}
 			</main>
+			@textarea.Script()
 		</body>
 	</html>
 }

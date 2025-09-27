@@ -1,0 +1,41 @@
+package workspaces
+
+import (
+	"github.com/mugen64/turtlor/internal/app/ui/components/button"
+	"github.com/mugen64/turtlor/internal/app/ui/components/textarea"
+)
+
+templ AddWorkspace() {
+	<div class="flex flex-col gap-4">
+		<form>
+			<div class="w-full border border-gray-100 dark:border-gray-800  rounded-2xl p-4 shadow-2xs focus-within:shadow-md">
+				@textarea.Textarea(textarea.Props{
+					Placeholder: "Describe your workspace...",
+					AutoResize:  true,
+					Class:       "border-none border-0 focus:outline-none bg-none shadow-none focus-visible:border-0 focus-visible:ring-0 focus-visible:ring-0",
+				})
+				<div class="flex justify-end">
+					<div>
+						@button.Button(button.Props{
+							Variant: button.VariantDefault,
+						}) {
+							Create
+						}
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="w-full flex justify-center items-center">
+			@button.Button(button.Props{
+				Variant: button.VariantGhost,
+			}) {
+				Help ?
+			}
+			@button.Button(button.Props{
+				Variant: button.VariantOutline,
+			}) {
+				Docs
+			}
+		</div>
+	</div>
+}

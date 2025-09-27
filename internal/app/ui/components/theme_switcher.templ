@@ -1,9 +1,52 @@
 package components
 
 templ ThemeSwitcher() {
-	<div class="flex items-center gap-2">
-		<button data-theme="light" class="p-2 rounded bg-gray-100 dark:bg-gray-700">Light</button>
-		<button data-theme="dark" class="p-2 rounded bg-gray-100 dark:bg-gray-700">Dark</button>
-		<button data-theme="system" class="p-2 rounded bg-gray-100 dark:bg-gray-700">System</button>
-	</div>
+	<button data-theme="light" class="p-2 cursor-pointer hover:border" id="themeSwitcher" aria-label="Toggle theme">
+		🌗
+	</button>
+	<script>
+		const themeSwitcher = document.getElementById('themeSwitcher');
+		themeSwitcher.addEventListener('click', toggleTheme);
+
+		const selectedTheme = localStorage.getItem('theme') || 'system';
+		let finalTheme = selectedTheme;
+		if (selectedTheme === 'system') {
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				finalTheme = prefersDark ? 'dark' : 'light';
+		}
+
+		function updateButtonContent() {
+			if (finalTheme === 'dark') {
+				themeSwitcher.textContent = '🌙';
+			} else if (finalTheme === 'light') {
+				themeSwitcher.textContent = '🌞';
+			} else {
+				themeSwitcher.textContent = '🌗';
+			}
+			themeSwitcher.setAttribute('data-theme', finalTheme);
+		}
+
+		updateButtonContent();
+
+		function toggleTheme(event) {
+			const currentTheme = themeSwitcher.getAttribute('data-theme');
+			let newTheme = 'system';
+			if (currentTheme === 'light') {
+				newTheme = 'dark';
+			} else if (currentTheme === 'dark') {
+				newTheme = 'system';
+			} else {
+				newTheme = 'light';
+			}
+			themeSwitcher.setAttribute('data-theme', newTheme);
+			localStorage.setItem('theme', newTheme);
+			finalTheme = newTheme;
+			updateButtonContent();
+			if (finalTheme === 'dark') {
+    				document.documentElement.setAttribute('class', finalTheme);
+   			} else {
+    				document.documentElement.setAttribute('class', '');
+   			}
+		}
+	</script>
 }

@@ -3,7 +3,7 @@ package home
 import (
 	"github.com/mugen64/turtlor/configs"
 	"github.com/mugen64/turtlor/internal/app/ui/components"
-	"github.com/mugen64/turtlor/internal/app/ui/components/button"
+	"github.com/mugen64/turtlor/internal/app/ui/workspaces"
 )
 
 // also added this freakish not JavaScript JavaScript function as a demonstration to functions and events
@@ -13,25 +13,21 @@ script doTheThing() {
 }
 
 templ main() {
-	<main>
-		<button
-			onClick={ doTheThing() }
-			class="bg-pink-600 rounded-md"
-		>
-			Click me
-		</button>
-		<h1 class="text-3xl font-black">
+	<section class="px-5 min-h-[80vh] mx-auto max-w-4xl flex flex-col gap-5">
+		// <header class="flex items-center leading-0">
+		// 	<img src="/static/images/favicon.png" alt="Turtlor Logo" class="inline-block mr-2"/>
+		// 	<h1 class="text-5xl font-black text-center">
+		// 		Experimental Workspaces
+		// 	</h1>
+		// </header>
+		<h1 class="text-5xl font-black text-center">
 			Experimental Workspaces
 		</h1>
-		<p class="text-gray-600 bg-red-500">
+		<p class="text-lg font-bold text-center">
 			You make, break. Have fun! join.
 		</p>
-		<div>
-			@button.Button() {
-				Button
-			}
-		</div>
-	</main>
+		@workspaces.AddWorkspace()
+	</section>
 }
 
 templ Index(cfg *configs.Config) {
