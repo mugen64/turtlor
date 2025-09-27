@@ -13,11 +13,11 @@ build:
 # dev runs the development server where it builds the tailwind css sheet,
 # and compiles the project whenever a file is changed.
 dev:
-	templ generate --watch --cmd="go generate" &\
-	templ generate --watch --cmd="go run ."
+	npx tailwindcss -i ./static/css/style.css -o ./static/css/tailwind.css --watch & \
+	templ generate	--watch  --cmd="sh -c ./dev-run"
 
 clean:
 	go clean
 
 tailwind:
-	npx tailwindcss -i ./static/css/style.css -o ./static/css/tailwind.css --watch
+	npx tailwintdcss -i ./static/css/style.css -o ./static/css/tailwind.css --watch

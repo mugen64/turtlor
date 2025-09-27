@@ -14,6 +14,7 @@ templ Layout(children ...templ.Component) {
 			<script src="/static/js/htmx2.0.6.min.js"></script>
 		</head>
 		<body>
+			<p>Some of my children </p>
 			for _, child := range children {
 				@child
 			}

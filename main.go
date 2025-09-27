@@ -18,5 +18,7 @@ func main() {
 	pagesHandler.Handle("/", templ.Handler(homePage))
 	pagesHandler.Handle("/static/", http.FileServer(http.FS(static)))
 
+	log.Println("server running on -> http://localhost:9090")
 	log.Fatalln(http.ListenAndServe(":9090", pagesHandler))
+
 }
