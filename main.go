@@ -6,14 +6,20 @@ import (
 	"net/http"
 
 	"github.com/a-h/templ"
-	"github.com/mugen64/turtlor/components"
+	"github.com/mugen64/turtlor/configs"
+	"github.com/mugen64/turtlor/internal/app/ui/home"
 )
 
 //go:embed static
 var static embed.FS
 
 func main() {
-	homePage := components.Index()
+	config, err := configs.LoadConfig()
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+	homePage := home.Index(config)
 	pagesHandler := http.NewServeMux()
 	pagesHandler.Handle("/", templ.Handler(homePage))
 	pagesHandler.Handle("/static/", http.FileServer(http.FS(static)))

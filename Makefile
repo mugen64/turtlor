@@ -14,7 +14,7 @@ build:
 # and compiles the project whenever a file is changed.
 dev:
 	npx tailwindcss -i ./static/css/style.css -o ./static/css/tailwind.css --watch & \
-	templ generate	--watch  --cmd="sh -c ./dev-run"
+	templ generate	--watch --proxy="http://localhost:9090"  --cmd="sh -c ./dev-run"
 
 clean:
 	go clean
