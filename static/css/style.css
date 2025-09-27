@@ -1,1 +1,53 @@
 @import "tailwindcss";
+
+:root {
+    --color-primary-50: #f5fcfc;
+    --color-primary-100: #edf9fa;
+    --color-primary-200: #d3f1f5;
+    --color-primary-300: #bbeaf0;
+    --color-primary-400: #8dd6e3;
+    --color-primary-500: #61c3d7;
+    --color-primary-600: #4fabc2;
+    --color-primary-700: #3784a1;
+    --color-primary-800: #226080;
+    --color-primary-900: #134261;
+    --color-primary-950: #08243d;
+}
+
+html,
+.light {
+    --color-surface-50: #ffffff;
+    --color-surface-100: #f8f8f8;
+    --color-surface-200: #f4f4f4;
+    --color-surface-300: #dedfdf;
+    --color-surface-400: #c8caca;
+    --color-surface-500: #b1b4b5;
+    --color-surface-600: #9b9fa0;
+
+    --foreground-1: #000000;
+    --foreground-2: #5e6364;
+    --foreground-3: #909495;
+    --foreground-4: #dddedf;
+
+    background: var(--color-surface-50);
+    color: var(--foreground-1);
+}
+
+html.dark,
+.dark {
+    --color-surface-50: #000000;
+    --color-surface-100: #0b0d0e;
+    --color-surface-200: #1b2123;
+    --color-surface-300: #303638;
+    --color-surface-400: #464c4d;
+    --color-surface-500: #5e6364;
+    --color-surface-600: #777b7c;
+
+    --foreground-1: #ffffff;
+    --foreground-2: #b1b4b5;
+    --foreground-3: #909495;
+    --foreground-4: #636363;
+
+    background: var(--color-surface-50);
+    color: var(--foreground-1);
+}

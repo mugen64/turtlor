@@ -1,20 +1,29 @@
 package components
 
 // also added this freakish not JavaScript JavaScript function as a demonstration to functions and events
+
 script doTheThing() {
     window.alert("yoho")
 }
 
-
 templ main() {
 	<main>
-        <button
+		<button
 			onClick={ doTheThing() }
 			class="bg-pink-600 rounded-md"
 		>
 			Click me
 		</button>
-    </main>
+		<h1 class="text-3xl font-black">
+			Experimental Workspaces
+		</h1>
+		<p class="text-gray-600 bg-red-500">
+			You make, break. Have fun!
+		</p>
+		<div>
+			<button type="button">sign up with github</button>
+		</div>
+	</main>
 }
 
 templ Index() {

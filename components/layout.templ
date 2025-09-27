@@ -1,19 +1,17 @@
 package components
 
-
 templ Layout(children ...templ.Component) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
-            <meta charset="UTF-8"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1"/>
-            <title>The Spending Log Thingy</title>
-            <!--
-                This line is literally why we created the layout component.
-                Actually having a standard html thing is why, but yeah it's what it's!
-            -->
-            <link href="/static/css/tailwind.css" rel="stylesheet"/>
-            <script src="/static/js/htmx2.0.6.min.js"></script>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<title>Turtlor</title>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet"/>
+			<link href="/static/css/tailwind.css" rel="stylesheet"/>
+			<script src="/static/js/htmx2.0.6.min.js"></script>
 		</head>
 		<body>
 			for _, child := range children {
