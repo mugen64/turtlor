@@ -5,19 +5,45 @@ import (
 	"strconv"
 )
 
-type Config struct {
-	Env  string
-	Port int
-}
+type (
+	Server struct {
+		Protocol string
+		Host     string
+		Port     int
+	}
+
+	Config struct {
+		Env      string
+		LogLevel string
+		Server   Server
+	}
+)
 
 func LoadConfig() (*Config, error) {
+	port := getEnvInt("PORT", 8080)
+	host := getEnv("HOST", "0.0.0.0")
+	protocol := getEnv("PROTOCOL", "http")
+
 	return &Config{
-		Env:  getEnv("ENV", "development"),
-		Port: getEnvInt("PORT", 8080),
+		Env:      getEnv("ENV", "development"),
+		LogLevel: getEnv("LOG_LEVEL", "INFO"),
+		Server: Server{
+			Protocol: protocol,
+			Host:     host,
+			Port:     port,
+		},
 	}, nil
 }
 
-func (c *Config) IsDevelopment() bool {
+func (s Server) Address() string {
+	return s.Host + ":" + strconv.Itoa(s.Port)
+}
+
+func (s Server) AddressWithProtocol() string {
+	return s.Protocol + "://" + s.Address()
+}
+
+func (c Config) IsDevelopment() bool {
 	return c.Env == "development"
 }
 

@@ -1,7 +1,10 @@
 package home
 
-import "github.com/mugen64/turtlor/internal/app/ui/components"
-import "github.com/mugen64/turtlor/configs"
+import (
+	"github.com/mugen64/turtlor/configs"
+	"github.com/mugen64/turtlor/internal/app/ui/components"
+	"github.com/mugen64/turtlor/internal/app/ui/components/button"
+)
 
 // also added this freakish not JavaScript JavaScript function as a demonstration to functions and events
 
@@ -21,10 +24,12 @@ templ main() {
 			Experimental Workspaces
 		</h1>
 		<p class="text-gray-600 bg-red-500">
-			You make, break. Have fun! join
+			You make, break. Have fun! join.
 		</p>
 		<div>
-			<button type="button">sign up with github</button>
+			@button.Button() {
+				Button
+			}
 		</div>
 	</main>
 }
