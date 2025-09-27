@@ -20,4 +20,4 @@ clean:
 	go clean
 
 tailwind:
-	npx tailwintdcss -i ./static/css/style.css -o ./static/css/tailwind.css --watch
+	npx tailwindcss -i ./static/css/style.css -o ./static/css/tailwind.css --watch

@@ -18,7 +18,7 @@ const sans = [
 ];
 
 module.exports = {
-  content: ["./components/**/*.{html,js,svelte,ts,templ}"],
+  content: ["./internal/app/ui/**/*.{html,js,svelte,ts,templ}"],
   darkMode: "class",
   theme: {
     fontFamily: {

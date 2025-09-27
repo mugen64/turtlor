@@ -1,0 +1,7 @@
+{
+  "componentsDir": "internal/app/ui/components",
+  "utilsDir": "pkg/utils",
+  "moduleName": "github.com/mugen64/turtlor",
+  "jsDir": "static/js",
+  "jsPublicPath": "/static/js"
+}

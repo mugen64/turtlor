@@ -14,9 +14,11 @@ templ Layout(children ...templ.Component) {
 			<script src="/static/js/htmx2.0.6.min.js"></script>
 		</head>
 		<body>
-			for _, child := range children {
-				@child
-			}
+			<main class="min-h-screen border rounded-4xl">
+				for _, child := range children {
+					@child
+				}
+			</main>
 		</body>
 	</html>
 }
